@@ -30,8 +30,13 @@ export default function HooksTodoApp(props) {
                     <Typography color='inherit'> TodoApp  w/HOOKS</Typography>
                 </Toolbar>
             </AppBar>
-            <TodoForm addNewTodo={addNewTodo}/>
-            <TodoList todos={todos} />
+            <Grid container justifyContent='center' style={{marginTop:'1rem'}}>
+                <Grid item xs={11} md={8} lg={4}>
+                    <TodoForm addNewTodo={addNewTodo}/>
+                    <TodoList todos={todos} />
+                </Grid>
+            </Grid>
+            
         </Paper>
     );
 };

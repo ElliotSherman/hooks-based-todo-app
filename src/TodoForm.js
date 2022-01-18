@@ -7,14 +7,22 @@ function TodoForm({addNewTodo}) {
     const [value , handeleChange , reset ] = useInputState('');
 
     return (
-        <Paper>
+        <Paper style={{margin:'1rem 0', padding:'0 1rem'}}>
             <form onSubmit={e =>{
                 e.preventDefault();
                 addNewTodo(value);
                 reset();
             }}
         >
-                <TextField value={value} onChange={handeleChange}/>
+                <TextField 
+                value={value} 
+                onChange={handeleChange} 
+                id="standard-password-input"
+                margin='normal'
+                fullWidth
+                label="Add New Todo"
+                type="text"
+                variant="standard"/>
             </form>
         </Paper>
     );
