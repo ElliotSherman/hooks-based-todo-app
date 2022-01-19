@@ -5,10 +5,10 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 
 
-function Todo({task , completed , removeTodo , id}) {
+function Todo({id , task , completed , removeTodo , toggleCheckbox}) {
     return (
             <>
-                <Checkbox checked={completed} tabIndex={-1}/>
+                <Checkbox checked={completed} tabIndex={-1} onClick={() => toggleCheckbox(id)}/>
                 <ListItemText style={{textDecoration: completed? 'line-through' : 'none'}}>
                     {task}
                 </ListItemText>

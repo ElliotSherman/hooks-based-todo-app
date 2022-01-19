@@ -2,7 +2,7 @@ import { Paper , List , Divider , ListItem } from '@mui/material';
 import React from 'react';
 import Todo from './Todo';
 
-function TodoList({todos, removeTodo}) {
+function TodoList({todos, removeTodo , toggleCheckbox}) {
     return (
         <Paper>
             <List>
@@ -15,6 +15,7 @@ function TodoList({todos, removeTodo}) {
                         key={todo.id} 
                         completed={todo.completed}
                         removeTodo = {removeTodo}
+                        toggleCheckbox = {toggleCheckbox}
                         />
                 </ListItem>
                 <Divider/>

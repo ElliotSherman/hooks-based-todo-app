@@ -14,15 +14,24 @@ export default function HooksTodoApp(props) {
 
     const [todos ,setTodos] = useState(intialTodos);
 
+    // add todo function
     const addNewTodo = newTodoText => {
         setTodos([...todos, {id:uuidv4(), task:newTodoText , completed:false}]);
     };
+    // remove todo function
     const removeTodo =(todoId) =>{
         // filter out todo by id 
         const updatedTodoList = todos.filter(todo => todo.id !== todoId);
         // call setTodos with new todos Array 
         setTodos(updatedTodoList);
     };
+    // toggle completed todo checkbox funcion
+    const toggleCheckbox = todoId => {
+        const updatedTodoList = todos.map( todo => 
+            todo.id === todoId ? {...todo , completed: !todo.completed } : todo 
+        );
+        setTodos(updatedTodoList);
+    }
     return (
         <Paper style ={{
             padding:0,
@@ -40,7 +49,10 @@ export default function HooksTodoApp(props) {
             <Grid container justifyContent='center' style={{marginTop:'1rem'}}>
                 <Grid item xs={11} md={8} lg={4}>
                     <TodoForm addNewTodo={addNewTodo}/>
-                    <TodoList todos={todos} removeTodo={removeTodo}/>
+                    <TodoList 
+                    todos={todos} 
+                    removeTodo={removeTodo} 
+                    toggleCheckbox={toggleCheckbox}/>
                 </Grid>
             </Grid>
             
