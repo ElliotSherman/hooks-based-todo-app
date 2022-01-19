@@ -3,7 +3,9 @@ import { ListItemText ,Checkbox , ListItemSecondaryAction, ListItemIcon } from '
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-function Todo({task , completed}) {
+
+
+function Todo({task , completed , removeTodo , id}) {
     return (
             <>
                 <Checkbox checked={completed} tabIndex={-1}/>
@@ -11,7 +13,7 @@ function Todo({task , completed}) {
                     {task}
                 </ListItemText>
                 <ListItemSecondaryAction>
-                    <IconButton aria-label='delete'>
+                    <IconButton aria-label='delete' onClick={()=> removeTodo(id)}>
                         <DeleteIcon/>
                     </IconButton>
                     <IconButton>

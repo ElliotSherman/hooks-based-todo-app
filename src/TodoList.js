@@ -2,14 +2,20 @@ import { Paper , List , Divider , ListItem } from '@mui/material';
 import React from 'react';
 import Todo from './Todo';
 
-function TodoList(props) {
+function TodoList({todos, removeTodo}) {
     return (
         <Paper>
             <List>
-            {props.todos.map(todo => (
+            {todos.map(todo => (
                 <>
                 <ListItem>
-                    <Todo task ={todo.task} key={todo.id} completed={todo.completed}/>
+                    <Todo
+                        id = {todo.id} 
+                        task ={todo.task} 
+                        key={todo.id} 
+                        completed={todo.completed}
+                        removeTodo = {removeTodo}
+                        />
                 </ListItem>
                 <Divider/>
                 </>

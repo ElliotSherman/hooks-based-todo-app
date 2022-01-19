@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { Typography , Paper , AppBar , Toolbar , Grid } from '@mui/material';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
-
+import { v4 as uuidv4 } from 'uuid';
 
 export default function HooksTodoApp(props) {
 
@@ -13,8 +13,15 @@ export default function HooksTodoApp(props) {
     ];
 
     const [todos ,setTodos] = useState(intialTodos);
+
     const addNewTodo = newTodoText => {
-        setTodos([...todos, {id:4, task:newTodoText , completed:false}]);
+        setTodos([...todos, {id:uuidv4(), task:newTodoText , completed:false}]);
+    };
+    const removeTodo =(todoId) =>{
+        // filter out todo by id 
+        const updatedTodoList = todos.filter(todo => todo.id !== todoId);
+        // call setTodos with new todos Array 
+        setTodos(updatedTodoList);
     };
     return (
         <Paper style ={{
@@ -33,7 +40,7 @@ export default function HooksTodoApp(props) {
             <Grid container justifyContent='center' style={{marginTop:'1rem'}}>
                 <Grid item xs={11} md={8} lg={4}>
                     <TodoForm addNewTodo={addNewTodo}/>
-                    <TodoList todos={todos} />
+                    <TodoList todos={todos} removeTodo={removeTodo}/>
                 </Grid>
             </Grid>
             
