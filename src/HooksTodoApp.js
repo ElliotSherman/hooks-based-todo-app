@@ -1,43 +1,16 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { Typography , Paper , AppBar , Toolbar , Grid } from '@mui/material';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
-import { v4 as uuidv4 } from 'uuid';
+import useTodoState from './hooks/useTodoState';
 
-export default function HooksTodoApp(props) {
 
-    const intialTodos = [
-        {id:1, task:'build project', completed: true},
-        {id:2, task:'push project to github', completed: false},
-        {id:3, task:'deploy project', completed: false}
-    ];
+export default function HooksTodoApp() {
+    const initialTodos = [{id:1,task:'this is an initial test value', completed:false}];
+    const {todos ,addTodo, removeTodo ,toggleCheckbox , editTodo} = useTodoState(initialTodos);
+    
 
-    const [todos ,setTodos] = useState(intialTodos);
 
-    // add todo function
-    const addNewTodo = newTodoText => {
-        setTodos([...todos, {id:uuidv4(), task:newTodoText , completed:false}]);
-    };
-    // remove todo function
-    const removeTodo =(todoId) =>{
-        // filter out todo by id 
-        const updatedTodoList = todos.filter(todo => todo.id !== todoId);
-        // call setTodos with new todos Array 
-        setTodos(updatedTodoList);
-    };
-    // toggle completed todo checkbox funcion
-    const toggleCheckbox = todoId => {
-        const updatedTodoList = todos.map( todo => 
-            todo.id === todoId ? {...todo , completed: !todo.completed } : todo 
-        );
-        setTodos(updatedTodoList);
-    };
-    const editTodo = (todoId , newTask) => {
-        const updatedTodoList = todos.map( todo => 
-            todo.id === todoId ? {...todo , task: newTask } : todo 
-        );
-        setTodos(updatedTodoList);
-    }
     return (
         <Paper style ={{
             padding:0,
@@ -54,7 +27,7 @@ export default function HooksTodoApp(props) {
             </AppBar>
             <Grid container justifyContent='center' style={{marginTop:'1rem'}}>
                 <Grid item xs={11} md={8} lg={4}>
-                    <TodoForm addNewTodo={addNewTodo}/>
+                    <TodoForm addTodo={addTodo}/>
                     <TodoList 
                     todos={todos} 
                     removeTodo={removeTodo} 
@@ -67,10 +40,3 @@ export default function HooksTodoApp(props) {
         </Paper>
     );
 };
-
-
-// STRUCTURE of downward data flow
-// -TodoApp
-//     -TodoForm
-//     -TodoList
-//         -TodoItem

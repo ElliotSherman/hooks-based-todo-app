@@ -16,6 +16,7 @@ function Todo({id , task , completed , removeTodo , toggleCheckbox ,editTodo}) {
                         task={task}
                         editTodo={editTodo}
                         id={id}
+                        key={id}
                         toggleEdit = {toggleEdit}
                     />
                 ) : (

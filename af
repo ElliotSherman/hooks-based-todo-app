@@ -1,0 +1,41 @@
+[33mcommit 3819646155e9743afa36b40e4dcb82ba80ca8445[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Eliyahu Shvartov <sheveryosef@gmail.com>
+Date:   Thu Jan 20 11:00:49 2022 +0200
+
+    add styling tweeks
+
+[33mcommit a808ad91ab2fd6e3f4aab936c182d6af3693fa84[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Eliyahu Shvartov <sheveryosef@gmail.com>
+Date:   Wed Jan 19 16:54:08 2022 +0200
+
+    Add checkbox toggle functionality
+
+[33mcommit a1548357900cb8a78805ac465238e295fa5c5d84[m
+Author: Eliyahu Shvartov <sheveryosef@gmail.com>
+Date:   Wed Jan 19 15:18:19 2022 +0200
+
+    add uuidv4 for unique key/id generation, add remove button funcionality that works
+
+[33mcommit 4a93bfc6e80af338965f127c8392b289c2d7f1cf[m
+Author: Eliyahu Shvartov <sheveryosef@gmail.com>
+Date:   Tue Jan 18 23:26:11 2022 +0200
+
+    create Todo component add more styles like checkbox edit delete
+
+[33mcommit 5008382d053d2aab074f8d8b0eceddaa19a76d4a[m
+Author: Eliyahu Shvartov <sheveryosef@gmail.com>
+Date:   Tue Jan 18 16:20:51 2022 +0200
+
+    add input form that adds new todo
+
+[33mcommit e971d31e1629a7cb562a97f6c5714f2d50dce69e[m
+Author: Eliyahu Shvartov <sheveryosef@gmail.com>
+Date:   Tue Jan 18 15:53:34 2022 +0200
+
+    create structure, TodoApp and TodoList compnents
+
+[33mcommit 223d8281a023777a694d5393c0bcfb7de8a8dfe7[m
+Author: Eliyahu Shvartov <sheveryosef@gmail.com>
+Date:   Tue Jan 18 15:07:50 2022 +0200
+
+    Initialize project using Create React App
