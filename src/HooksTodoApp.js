@@ -31,6 +31,12 @@ export default function HooksTodoApp(props) {
             todo.id === todoId ? {...todo , completed: !todo.completed } : todo 
         );
         setTodos(updatedTodoList);
+    };
+    const editTodo = (todoId , newTask) => {
+        const updatedTodoList = todos.map( todo => 
+            todo.id === todoId ? {...todo , task: newTask } : todo 
+        );
+        setTodos(updatedTodoList);
     }
     return (
         <Paper style ={{
@@ -52,7 +58,9 @@ export default function HooksTodoApp(props) {
                     <TodoList 
                     todos={todos} 
                     removeTodo={removeTodo} 
-                    toggleCheckbox={toggleCheckbox}/>
+                    toggleCheckbox={toggleCheckbox}
+                    editTodo = {editTodo}
+                    />
                 </Grid>
             </Grid>
             
